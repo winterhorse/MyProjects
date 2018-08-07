@@ -28,16 +28,32 @@
     <ClCompile Include="Camera.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="obj_loader.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Display.h">
       <Filter>源文件</Filter>
     </ClInclude>
-    <ClInclude Include="Mesh.h" />
-    <ClInclude Include="Shader.h" />
-    <ClInclude Include="Texture.h" />
-    <ClInclude Include="Transform.h" />
-    <ClInclude Include="Camera.h" />
+    <ClInclude Include="Camera.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Transform.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="obj_loader.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="basicShader.fs">

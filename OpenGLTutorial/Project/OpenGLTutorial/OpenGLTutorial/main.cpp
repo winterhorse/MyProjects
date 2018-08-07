@@ -19,14 +19,20 @@ int main(int argc, char** argv){
 		Vertex(glm::vec3( 0.5f, -0.5f, 0.0f), glm::vec2(1.0, 0.0))
 	};
 
-	Mesh mesh(vertices, sizeof(vertices) / sizeof(vertices[0]));
+	GLuint indices[] = {0, 1, 2};
+
+	Mesh mesh(vertices, sizeof(vertices) / sizeof(vertices[0]), indices, sizeof(indices) / sizeof(indices[0]));
+
+	//Mesh mesh2("cube.obj"); 
+	Mesh mesh2("monkey3.obj");
+	//Mesh mesh2("plane3.obj"); 
 
 	Shader shader("basicShader");
-	Texture texture("wall.jpg");
+	Texture texture("bricks.jpg");
 
 	Transform transform;
 
-	Camera camera(glm::vec3(0.0, 0.0, -2.0), glm::radians(90.0f), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.01f, 1000.0f);
+	Camera camera(glm::vec3(0.0, 0.0, -3.0), glm::radians(50.0f), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.01f, 1000.0f);
 
 	float counter = 0.0f;
 
@@ -35,24 +41,30 @@ int main(int argc, char** argv){
 
 		float sinCounter = sinf(counter);
 
-		transform.GetPos()->x = sinCounter;
-		transform.GetPos()->z = sinCounter;
+		//transform.GetPos()->x = sinCounter;
+		//transform.GetPos()->z = sinCounter;
+
+		transform.SetPos(glm::vec3(sinCounter, sinCounter, sinCounter));
+
+		transform.SetRot(glm::vec3(sinCounter, sinCounter, sinCounter));
+
+		//transform.SetScale(glm::vec3(sinCounter, sinCounter, sinCounter));
 		//transform.GetScale()->y = sinCounter;
 		//transform.GetScale()->z = sinCounter;
 
-		//transform.GetRot()->x = sinCounter*10;
-		//transform.GetRot()->y = sinCounter * 10;
+		//transform.GetRot()->x = sinCounter * 5;
+		//transform.GetRot()->y = sinCounter * 5;
 
 		shader.Bind();		
 		texture.Bind();
 
 		shader.Update(transform, camera);
 
-		mesh.Draw();
+		mesh2.Draw();	
 
 		display.Update();
 
-		counter += 0.001f;
+		counter += 0.0005f;
 	}
 
 	return 0;
