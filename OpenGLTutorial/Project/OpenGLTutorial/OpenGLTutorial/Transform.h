@@ -25,27 +25,14 @@ public:
 	inline void SetScale(glm::vec3& scale) { this->scale = scale; }
 
 	inline glm::mat4 GetModel() const {
-		glm::mat4 posMat;
-		posMat = glm::translate(posMat, pos); 
-
-		glm::mat4 scaleMat;
-		scaleMat  = glm::scale(scaleMat, scale);
-
-		glm::mat4 rotX;
-		rotX = glm::rotate(rotX, (rot.x), glm::vec3(1.0, 0.0, 0.0));
-
-		glm::mat4 rotY;
-		rotY = glm::rotate(rotY, (rot.y), glm::vec3(0.0, 1.0, 0.0));
-
-		glm::mat4 rotZ;
-		rotZ = glm::rotate(rotZ, (rot.z), glm::vec3(0.0, 0.0, 1.0));
-
-
+		glm::mat4 posMat = glm::translate(glm::mat4(), pos);
+		glm::mat4 scaleMat = glm::scale(glm::mat4(), scale);	
+		glm::mat4 rotX = glm::rotate(glm::mat4(), (rot.x), glm::vec3(1.0, 0.0, 0.0));
+		glm::mat4 rotY = glm::rotate(glm::mat4(), (rot.y), glm::vec3(0.0, 1.0, 0.0));
+		glm::mat4 rotZ = glm::rotate(glm::mat4(), (rot.z), glm::vec3(0.0, 0.0, 1.0));
 		glm::mat4 rotMat = rotX * rotY * rotZ;
 
 		return posMat * rotMat * scaleMat;
-
-		//return posMat;
 	}
 
 private:
